@@ -2,23 +2,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HelloApp {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        List<String> names = getNames(args);
+        String message = buildMessage(names);
+        displayMessage(message);
+    }
+
+    // Method to collect names
+    public static List<String> getNames(String[] args) {
         List<String> names = new ArrayList<>();
 
-        // Add all command-line arguments to list
         for (String arg : args) {
             names.add(arg);
         }
 
-        String message;
+        return names;
+    }
 
+    // Method to build message
+    public static String buildMessage(List<String> names) {
         if (names.size() > 0) {
-            message = String.join(", ", names);
+            return String.join(", ", names);
         } else {
-            message = "World";
+            return "World";
         }
+    }
 
+    // Method to display output
+    public static void displayMessage(String message) {
         System.out.println("Hello, " + message + "!");
     }
 }
