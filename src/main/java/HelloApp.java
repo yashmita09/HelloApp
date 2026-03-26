@@ -1,20 +1,20 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class HelloApp {
     public static void main(String[] args) {
 
+        List<String> names = new ArrayList<>();
+
+        // Add all command-line arguments to list
+        for (String arg : args) {
+            names.add(arg);
+        }
+
         String message;
 
-        if (args.length > 0) {
-            StringBuilder names = new StringBuilder();
-
-            for (int i = 0; i < args.length; i++) {
-                names.append(args[i]);
-
-                if (i < args.length - 1) {
-                    names.append(", ");
-                }
-            }
-
-            message = names.toString();
+        if (names.size() > 0) {
+            message = String.join(", ", names);
         } else {
             message = "World";
         }
